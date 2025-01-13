@@ -1,10 +1,13 @@
 import asyncio
+import os
 from aiogram import Bot, Dispatcher
+from dotenv import load_dotenv
 from handlers import (
     bot_commands,
     bot_messages,
     bot_errors,
-    bot_startup)
+    bot_startup,
+    callback_query)
 
 # Загрузка переменных окружения из файла .env
 load_dotenv()
