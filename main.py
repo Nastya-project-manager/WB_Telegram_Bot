@@ -16,6 +16,7 @@ async def main() -> None:
     dp.include_routers(
         bot_commands.router,
         bot_messages.router,
+        callback_query.router,
         bot_startup.router,
         bot_errors.router
     )
