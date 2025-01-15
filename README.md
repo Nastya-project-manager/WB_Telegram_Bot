@@ -48,9 +48,13 @@ Telegram bot для анализа товаров в WB
 ![image_2025-01-14_13-14-43](https://github.com/user-attachments/assets/596148d6-3556-43f0-bf49-4ae45b9cff69)
 
 Terminal готов для использования, теперь нам нужно создать виртуальное окружение, активировать его и установить зависимоти. Для этого в Visual Studio выполните следующие команды:
+
 python -m venv venv 
+
 venv\Scripts\activate.bat 
+
 python.exe -m pip install --upgrade pip 
+
 pip install -r requirements.txt
 
 Для запуска бота пишем в терминале python main.py
