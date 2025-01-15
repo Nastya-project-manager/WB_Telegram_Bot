@@ -23,7 +23,7 @@ def get_server_menu():
 
     if response.status_code == 200:
         # Пришел все меню, Возьму только для женщин
-        data = response.json()[4]["childs"]
+        data = response.json()[3]["childs"]
         df = pd.DataFrame(data)
         df = df[~df['childs'].apply(lambda x: isinstance(x, list))]
         df.to_csv("wildberries_menu.csv", index=True)
@@ -87,7 +87,7 @@ def get_products(name, shard, query):
                 'rating': item['reviewRating'],
                 'feedbacks': item['feedbacks'],
                 'price': [{a['name']: a['price']['total'] // 100} for a in item['sizes']],
-                'url': f'https://www.wildberries.ru/catalog/{item['id']}/detail.aspx'
+                'url': f"https://www.wildberries.ru/catalog/{item['id']}/detail.aspx"
             }
 
             data['products'].append(product)
@@ -139,5 +139,3 @@ def check_urls_parallel(id: str):
                 return url  # Останавливаем выполнение после нахождения первого успешного запроса
         else:
             print("Все ссылки недоступны или ошибка сети.")
-
-

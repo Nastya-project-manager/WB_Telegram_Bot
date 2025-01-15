@@ -16,7 +16,7 @@ def categories() -> InlineKeyboardBuilder.as_markup:
     markup = InlineKeyboardBuilder()
     for  _, row in open_menu().iterrows():
         markup.adjust(4)
-        markup.button(text=row['name'], callback_data=f'select:{row['id']}')
+        markup.button(text=row['name'], callback_data=f"select:{row['id']}")
     return markup.as_markup()
 
 
