@@ -81,3 +81,39 @@ python main.py
 1. Метрика качества: Позволяет определить лучшее предложение с точки зрения цены и отзывов.
 2. Популярные категории: Категории с наибольшим числом запросов у пользователей.
 3. Оптимизация запросов: Использование многопоточной обработки позволило ускорить проверку изображений и снизить нагрузку на сервер.
+# Ошибки:
+1. Ошибка: f-string: unmatched '{'
+Описание: Неправильный синтаксис строки в файле categories_key.py.
+Причина: Пропущена закрывающая фигурная скобка {} в f-string.
+Решение:
+Было:
+markup.button(text=row['name'], callback_data=f'select:{row['id']}')
+Исправлено:
+markup.button(text=row['name'], callback_data=f"select:{row['id']}")
+
+2. Ошибка: ImportError: cannot import name 'categories_key'
+Описание: Бот не может импортировать модуль categories_key из папки keyboard.
+Причина: Путь импорта неверный или отсутствует файл __init__.py.
+Решение:
+Проверьте, есть ли файлing: unmatpy в папке keyboard. Если его нет, создайте пустой файл.
+Проверьте правильность импорта в файле bot_commands.py:
+from keyboard import categories_key
+
+3. Ошибка: ModuleNotFoundError: No module named 'dotenv'
+Описание: Библиотека python-dotenv не установлена.
+Причина: Зависимость отсутствует в виртуальном окружении.
+Решение:
+Установите библиотеку:
+pip install python-dotenv
+
+Убедитесь, что она указана в requirements.txt:
+python-dotenv~=1.0.1
+
+4. Ошибка: FileNotFoundError: wildberries_menu.csv
+Описание: Файл wildberries_menu.csv не найден.
+Причина: Файл отсутствует, не создан или находится не в той директории.
+Решение:
+Проверьте, вызвана ли функция Parser.get_server_menu() в bot_startup.py. Она создает этот файл.
+Убедитесь, что у бота есть доступ к записи в текущую директорию.
+Если файл не создается, проверьте код в Parser.py и правильность URL API Wildberries:
+url = 'https://static-basket-01.wbbasket.ru/vol0/data/main-menu-ru-ru-v3.json'
