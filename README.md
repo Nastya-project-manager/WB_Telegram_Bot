@@ -59,6 +59,10 @@ pip install -r requirements.txt
 
 Для запуска бота пишем в терминале python main.py
 
+![IMG_8351](https://github.com/user-attachments/assets/1ab35956-0603-407d-b5e9-5e0b0b3aa9ea)
+
+![IMG_8352](https://github.com/user-attachments/assets/ddeea4f4-c908-40a4-94d8-27c7068a1267)
+
 # Выявленные инсайты:
 1. Метрика качества: Позволяет определить лучшее предложение с точки зрения цены и отзывов.
 2. Популярные категории: Категории с наибольшим числом запросов у пользователей.
